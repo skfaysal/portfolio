@@ -1,5 +1,5 @@
 import { useState, type ReactNode } from "react";
-import { certifications, education, profile, projects, publications, roles, stack, stats, strengths } from "../data";
+import { certifications, education, highlights, profile, projects, publications, roles, stack, strengths } from "../data";
 import LogoLoop from "./LogoLoop";
 import { ArrowIcon, ChevronIcon, CloudIcon, ExternalIcon, EyeIcon, SparkIcon, WaveIcon } from "./Icons";
 
@@ -18,7 +18,7 @@ function Head({ path, title, lede }: { path: string; title: string; lede?: strin
   return (
     <div className="sec-head">
       <p className="path">~/{path}</p>
-      <h2>{title}</h2>
+      <h2 id={`${path}-title`}>{title}</h2>
       {lede && <p className="lede">{lede}</p>}
     </div>
   );
@@ -56,11 +56,13 @@ export function About() {
           </figure>
         </div>
 
-        <ul className="stats">
-          {stats.map((s) => (
-            <li key={s.label} className="card">
-              <b>{s.value}</b>
-              <span>{s.label}</span>
+        <h3 className="sub">What I've delivered</h3>
+        <ul className="wins">
+          {highlights.map((h) => (
+            <li key={h.industry} className="win card card-hover">
+              <span className="win-tag">{h.industry}</span>
+              <p className="win-head">{h.headline}</p>
+              <p className="win-detail">{h.detail}</p>
             </li>
           ))}
         </ul>
@@ -113,7 +115,12 @@ export function Experience() {
   return (
     <section className="section" id="experience" aria-labelledby="experience-title">
       <div className="container narrow">
-        <Head path="experience" title="Where I've worked" lede="Most recent first. Open a role to see what I shipped." />
+        <div className="xp-headline">
+          <p className="rule-label">
+            <span>~/experience</span>
+          </p>
+          <h2 id="experience-title">Where I've worked</h2>
+        </div>
         <ol className="xp-list">
           {roles.map((r, i) => {
             const isOpen = open === i;
@@ -131,10 +138,9 @@ export function Experience() {
                       {r.start} – {r.end}
                     </b>
                     <span className="xp-loc">{r.location}</span>
-                    {i === 0 && <span className="now-pill">now</span>}
                   </span>
                   <span className="xp-title">
-                    {r.title} <span className="dash">—</span> <span className="xp-co">{r.company}</span>
+                    {r.title} <span className="dash">—</span> {r.company}
                   </span>
                   <span className="chev" aria-hidden="true">
                     <ChevronIcon />

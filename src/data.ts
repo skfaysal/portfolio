@@ -64,10 +64,10 @@ export const roles: Role[] = [
     location: "Remote",
     start: "Oct 2026",
     end: "present",
-    summary: "Building production AI products for Techjays clients, with a focus on LLMs and voice AI agents.",
+    summary: "Building production AI products for clients, from LLM features to real-time voice agents.",
     highlights: [
-      "Currently building a **real-time voice agent** that runs first-round candidate screening interviews.",
-      "The agent asks **role-specific questions** and hands recruiters a **structured summary** of each call.",
+      "Shipping a **real-time voice AI agent** that runs first-round candidate screening interviews, so recruiters spend their time on qualified people.",
+      "The agent asks **role-specific questions**, adapts follow-ups to each answer, and hands recruiters a **structured summary** of every call.",
     ],
     stack: ["LLMs", "Voice AI", "Python"],
   },
@@ -79,13 +79,13 @@ export const roles: Role[] = [
     start: "Mar 2024",
     end: "Sep 2026",
     client: "IQVIA",
-    summary: "Agentic AI, LLM fine-tuning and MLOps, including work for IQVIA, a global healthcare data company.",
+    summary: "Agentic AI and MLOps for the pharma and healthcare data industry, including IQVIA.",
     highlights: [
-      "Built a **multi-agent commercial planner on LangGraph**: an orchestrator agent routes each request to specialized planning sub-agents.",
-      "Built a multi-agent system with a **reflection pattern** to enrich metadata.",
-      "Built a **multi-agent pipeline** that generates synthetic data to **fine-tune an LLM**, improving accuracy and robustness.",
-      "Migrated ML algorithms from Kubeflow to **SageMaker Pipelines** with **MLflow** for model management.",
-      "Set up **GitLab CI/CD** and unit tests to tighten code quality and deployments.",
+      "Built a **multi-agent commercial planner for the pharma industry** on LangGraph: an orchestrator agent routes each planning request to specialist sub-agents.",
+      "Built **self-reviewing agents** (reflection pattern) that enrich product metadata automatically.",
+      "Generated **synthetic training data with a multi-agent pipeline** to **fine-tune an LLM**, improving accuracy and robustness.",
+      "Moved production ML from Kubeflow to **AWS SageMaker Pipelines** with **MLflow**, making models easier to track, version and ship.",
+      "Set up **GitLab CI/CD** and unit tests so releases are safer and faster.",
     ],
     stack: ["LangGraph", "Multi-agent", "LLM fine-tuning", "SageMaker", "MLflow", "Kubeflow", "GitLab CI"],
   },
@@ -96,12 +96,12 @@ export const roles: Role[] = [
     location: "Dhaka",
     start: "Apr 2022",
     end: "Mar 2024",
-    summary: "Led video understanding work for FIFAe esports streams.",
+    summary: "Led video analytics for esports broadcasting, turning FIFAe live streams into searchable, mobile-ready content.",
     highlights: [
-      "Deep learning models that **detect in-game events** in FIFAe streams.",
-      "Led **16:9 to 9:16 reframing** with motion tracking and signal processing for smooth mobile clips.",
-      "Extracted **CLIP and ViT embeddings** from streams and clustered similar scenes across chunks.",
-      "Brought **MLflow and Airflow** into training and production pipelines.",
+      "**Video analytics** that automatically detect in-game events in FIFAe streams.",
+      "Led **automatic 16:9 to 9:16 reframing** with motion tracking, turning broadcast footage into mobile-ready clips.",
+      "**Scene search and grouping** with CLIP and ViT embeddings across hours of stream footage.",
+      "Brought **MLflow and Airflow** into training and production for a reliable ML lifecycle.",
     ],
     stack: ["PyTorch", "CLIP", "ViT", "Video", "MLflow", "Airflow"],
   },
@@ -112,7 +112,7 @@ export const roles: Role[] = [
     location: "Dhaka",
     start: "Aug 2021",
     end: "Mar 2022",
-    summary: "Speech recognition and computer vision products.",
+    summary: "Speech and vision AI products, including Bangla speech recognition.",
     highlights: [
       "**Bangla speech recognition** with a Transformer model, reaching **20% WER**, plus a testing pipeline across diverse audio.",
       "Built a **virtual trial room** with computer vision and deep learning.",
@@ -125,10 +125,10 @@ export const roles: Role[] = [
     location: "Dhaka",
     start: "Nov 2020",
     end: "Aug 2021",
-    summary: "Diabetic retinopathy screening from fundus images.",
+    summary: "AI-assisted diabetic retinopathy screening from retinal images, built to support ophthalmologists.",
     highlights: [
       "**92% sensitivity** in diabetic retinopathy classification.",
-      "**Grad-CAM** maps that show ophthalmologists which regions drove each prediction.",
+      "**Explainable predictions** with Grad-CAM, showing ophthalmologists which regions of the eye drove each result.",
       "Ensembles added **3.2% accuracy**; left/right eye classification reached **98%**.",
       "Clustered images using learned model features.",
     ],
@@ -141,7 +141,7 @@ export const roles: Role[] = [
     location: "Dhaka",
     start: "Oct 2019",
     end: "Oct 2020",
-    summary: "Applied ML for public health and education.",
+    summary: "Healthcare and education AI for government and university partners.",
     highlights: [
       "Led an **ICT Ministry pilot** detecting Covid-19 and pneumonia from chest X-rays and CT scans at **96% sensitivity**.",
       "Predicted student dropouts at **98% accuracy**, cutting dropout by 2% over two semesters.",
@@ -151,11 +151,28 @@ export const roles: Role[] = [
   },
 ];
 
-export const stats = [
-  { value: "7+", label: "years shipping ML to production" },
-  { value: "6", label: "teams across healthcare, esports, speech, HR tech and enterprise data" },
-  { value: "96%", label: "sensitivity on a national Covid-19 screening pilot" },
-  { value: "AWS", label: "Certified AI Practitioner" },
+/** Client-facing highlights shown under About. */
+export const highlights = [
+  {
+    industry: "Pharma",
+    headline: "Built a multi-agent commercial planner for the pharma industry",
+    detail: "LangGraph orchestrator routing planning requests to specialist agents.",
+  },
+  {
+    industry: "Sports and media",
+    headline: "Delivered video analytics for FIFAe esports streams",
+    detail: "Event detection, scene search and automatic mobile-ready reframing.",
+  },
+  {
+    industry: "Recruiting",
+    headline: "Shipping a voice AI agent that screens candidates",
+    detail: "Real-time interviews with a recruiter-ready summary of every call.",
+  },
+  {
+    industry: "Healthcare",
+    headline: "Built medical imaging AI used in screening programs",
+    detail: "Diabetic retinopathy and Covid-19 detection, including a national ICT Ministry pilot.",
+  },
 ];
 
 export const strengths = [
@@ -261,7 +278,7 @@ export const projects: Project[] = [
   },
   {
     title: "Multi-agent commercial planner",
-    context: "Nifty Coders",
+    context: "Nifty Coders, pharma industry",
     points: ["Orchestrator agent on LangGraph routes requests to specialized planning sub-agents.", "Reflection-pattern agents enrich metadata."],
     tags: ["LangGraph", "Agentic AI"],
   },
@@ -305,8 +322,8 @@ export const projects: Project[] = [
     links: [{ label: "Testing pipeline", url: gh("ASR-Testing-Pipeline-and-performence-matrix") }],
   },
   {
-    title: "FIFAe stream intelligence",
-    context: "SELISE",
+    title: "Esports video analytics",
+    context: "SELISE, FIFAe streams",
     points: ["In-game event detection across live esports streams.", "Automatic 9:16 reframing and CLIP-based scene clustering."],
     tags: ["Video", "CLIP"],
   },
