@@ -1,6 +1,6 @@
 import Hero from "./components/Hero";
 import Nav from "./components/Nav";
-import { About, Contact, Credentials, Experience, Projects } from "./components/Sections";
+import { About, Contact, Credentials, Experience, Projects, Stack } from "./components/Sections";
 
 export default function App() {
   return (
@@ -13,8 +13,9 @@ export default function App() {
         <Hero />
         <About />
         <Experience />
-        <Projects />
+        <Stack />
         <Credentials />
+        <Projects />
         <Contact />
       </main>
     </>

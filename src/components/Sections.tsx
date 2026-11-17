@@ -1,5 +1,6 @@
 import { useState, type ReactNode } from "react";
 import { certifications, education, highlights, profile, projects, publications, roles, stack, strengths } from "../data";
+import CareerBar from "./CareerBar";
 import LogoLoop from "./LogoLoop";
 import { ArrowIcon, ChevronIcon, CloudIcon, ExternalIcon, EyeIcon, SparkIcon, WaveIcon } from "./Icons";
 
@@ -83,27 +84,6 @@ export function About() {
           })}
         </ul>
 
-        <h3 className="sub">Stack I work with</h3>
-        <div className="stack">
-          {stack.map((g) => (
-            <div key={g.group} className="stack-group">
-              <p className="stack-label">{g.group}</p>
-              <ul className="tools">
-                {g.tools.map((t) => (
-                  <li key={t.name} className="tool">
-                    {t.icon ? (
-                      <img src={t.icon} alt="" width={20} height={20} loading="lazy" />
-                    ) : (
-                      <span className="tool-dot" aria-hidden="true" />
-                    )}
-                    {t.name}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-
         <LogoLoop />
       </div>
     </section>
@@ -112,6 +92,13 @@ export function About() {
 
 export function Experience() {
   const [open, setOpen] = useState<number | null>(0);
+  const pick = (i: number) => {
+    setOpen(i);
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    requestAnimationFrame(() =>
+      document.getElementById(`xp-card-${i}`)?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" })
+    );
+  };
   return (
     <section className="section" id="experience" aria-labelledby="experience-title">
       <div className="container narrow">
@@ -121,12 +108,14 @@ export function Experience() {
           </p>
           <h2 id="experience-title">Where I've worked</h2>
         </div>
+        <CareerBar roles={roles} active={open} onPick={pick} />
         <ol className="xp-list">
           {roles.map((r, i) => {
             const isOpen = open === i;
             const panelId = `xp-${i}`;
             return (
-              <li key={r.company} className="xp card" data-open={isOpen}>
+              <li key={r.company} id={`xp-card-${i}`} className="xp card" data-open={isOpen}>
+                <span className="xp-dot" data-now={i === 0} aria-hidden="true" />
                 <button
                   className="xp-head"
                   aria-expanded={isOpen}
@@ -174,6 +163,35 @@ export function Experience() {
             );
           })}
         </ol>
+      </div>
+    </section>
+  );
+}
+
+export function Stack() {
+  return (
+    <section className="section" id="stack" aria-labelledby="stack-title">
+      <div className="container">
+        <Head path="stack" title="Stack I work with" />
+        <div className="stack">
+          {stack.map((g) => (
+            <div key={g.group} className="stack-group">
+              <p className="stack-label">{g.group}</p>
+              <ul className="tools">
+                {g.tools.map((t) => (
+                  <li key={t.name} className="tool">
+                    {t.icon ? (
+                      <img src={t.icon} alt="" width={20} height={20} loading="lazy" />
+                    ) : (
+                      <span className="tool-dot" aria-hidden="true" />
+                    )}
+                    {t.name}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

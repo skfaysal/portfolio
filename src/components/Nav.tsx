@@ -4,6 +4,7 @@ import { MoonIcon, SunIcon } from "./Icons";
 const links = [
   { id: "about", label: "about" },
   { id: "experience", label: "experience" },
+  { id: "stack", label: "stack" },
   { id: "projects", label: "projects" },
   { id: "contact", label: "contact" },
 ];

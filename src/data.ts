@@ -46,6 +46,8 @@ export const companies: Company[] = [
 export type Role = {
   title: string;
   company: string;
+  /** short label for the career timeline bar */
+  short: string;
   url?: string;
   location: string;
   start: string;
@@ -60,6 +62,7 @@ export const roles: Role[] = [
   {
     title: "Senior AI Engineer",
     company: "Techjays",
+    short: "Techjays",
     url: "https://www.techjays.com",
     location: "Remote",
     start: "Oct 2026",
@@ -74,6 +77,7 @@ export const roles: Role[] = [
   {
     title: "Senior Machine Learning Engineer",
     company: "Nifty Coders",
+    short: "Nifty Coders",
     url: "https://www.niftycoders.com",
     location: "Dhaka",
     start: "Mar 2024",
@@ -92,6 +96,7 @@ export const roles: Role[] = [
   {
     title: "Lead Data Scientist",
     company: "SELISE Digital Platforms",
+    short: "SELISE",
     url: "https://selisegroup.com",
     location: "Dhaka",
     start: "Apr 2022",
@@ -108,6 +113,7 @@ export const roles: Role[] = [
   {
     title: "Executive Machine Learning Engineer",
     company: "BYSL Global Technologies",
+    short: "BYSL",
     url: "https://byslglobal.com",
     location: "Dhaka",
     start: "Aug 2021",
@@ -122,6 +128,7 @@ export const roles: Role[] = [
   {
     title: "Machine Learning Engineer",
     company: "Smart Retina",
+    short: "Smart Retina",
     location: "Dhaka",
     start: "Nov 2020",
     end: "Aug 2021",
@@ -137,6 +144,7 @@ export const roles: Role[] = [
   {
     title: "Machine Learning Engineer",
     company: "Daffodil Software",
+    short: "Daffodil",
     url: "https://daffodil.group",
     location: "Dhaka",
     start: "Oct 2019",
