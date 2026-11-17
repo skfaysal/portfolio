@@ -1,26 +1,22 @@
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-import Experience from './components/Experience/Experience'
-import Footer from './components/Footer/Footer'
-import Header from './components/Header/Header'
-import Landing from './components/Landing/Landing'
-import ProjectList from './components/Projects/ProjectList'
-import Skills from './components/Skills/Skills'
-import Blogs from './components/Blogs'
+import Hero from "./components/Hero";
+import Nav from "./components/Nav";
+import { About, Contact, Credentials, Experience, Projects } from "./components/Sections";
 
-function App() {
-
+export default function App() {
   return (
     <>
-    <Header />
-    <Landing />
-    <Experience />
-    <Skills />
-    <ProjectList />
-    <Blogs />
-    <Footer />
+      <a className="skip" href="#main">
+        Skip to content
+      </a>
+      <Nav />
+      <main id="main">
+        <Hero />
+        <About />
+        <Experience />
+        <Projects />
+        <Credentials />
+        <Contact />
+      </main>
     </>
-  )
+  );
 }
-
-export default App

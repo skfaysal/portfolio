@@ -1,0 +1,363 @@
+const base = import.meta.env.BASE_URL;
+export const asset = (path: string) => `${base}${path}`;
+const devicon = (name: string, variant = "original") =>
+  `https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/${name}/${name}-${variant}.svg`;
+
+export const profile = {
+  name: "Sheikh Md. Faysal",
+  brand: "FaysAI",
+  titles: ["Senior AI Engineer", "ML Architect", "GenAI", "AWS Certified AI Practitioner"],
+  years: "7+",
+  location: "Dhaka, Bangladesh",
+  timezone: "GMT+6",
+  email: "skmdfaysal@gmail.com",
+  github: "https://github.com/skfaysal",
+  githubHandle: "@skfaysal",
+  linkedin: "https://www.linkedin.com/in/md-faysal-030800147/",
+  photo: asset("my_profile.png"),
+  resume: asset("Resume-Sheikh-Md-Faysal.pdf"),
+  now: "building real-time voice AI agents",
+};
+
+export type Company = {
+  name: string;
+  url?: string;
+  logo: string;
+  /** width / height of the logo artwork, used to size it optically */
+  aspect: number;
+  /** show the company name beside marks that don't include it */
+  showName?: boolean;
+  /** optical correction for light or heavy artwork */
+  scale?: number;
+  relation: "employer" | "client";
+};
+
+export const companies: Company[] = [
+  { name: "Techjays", url: "https://www.techjays.com", logo: asset("logos/techjays.svg"), aspect: 409 / 74, relation: "employer" },
+  { name: "Nifty Coders", url: "https://www.niftycoders.com", logo: asset("logos/nifty-coders.png"), aspect: 160 / 148, scale: 0.7, showName: true, relation: "employer" },
+  { name: "IQVIA", url: "https://www.iqvia.com", logo: asset("logos/iqvia.png"), aspect: 540 / 94, relation: "client" },
+  { name: "SELISE Digital Platforms", url: "https://selisegroup.com", logo: asset("logos/selise.svg"), aspect: 113 / 48, scale: 1.25, relation: "employer" },
+  { name: "BYSL Global Technology Group", url: "https://byslglobal.com", logo: asset("logos/bysl.png"), aspect: 360 / 126, scale: 1.05, relation: "employer" },
+  { name: "Smart Retina", logo: asset("logos/smart-retina.png"), aspect: 170 / 156, scale: 1.15, relation: "employer" },
+  { name: "Daffodil Software", url: "https://daffodil.group", logo: asset("logos/daffodil-software.svg"), aspect: 104 / 53, relation: "employer" },
+];
+
+/** Text wrapped in **double asterisks** renders bold. */
+export type Role = {
+  title: string;
+  company: string;
+  url?: string;
+  location: string;
+  start: string;
+  end: string;
+  client?: string;
+  summary: string;
+  highlights: string[];
+  stack?: string[];
+};
+
+export const roles: Role[] = [
+  {
+    title: "Senior AI Engineer",
+    company: "Techjays",
+    url: "https://www.techjays.com",
+    location: "Remote",
+    start: "Oct 2026",
+    end: "present",
+    summary: "Building production AI products for Techjays clients, with a focus on LLMs and voice AI agents.",
+    highlights: [
+      "Currently building a **real-time voice agent** that runs first-round candidate screening interviews.",
+      "The agent asks **role-specific questions** and hands recruiters a **structured summary** of each call.",
+    ],
+    stack: ["LLMs", "Voice AI", "Python"],
+  },
+  {
+    title: "Senior Machine Learning Engineer",
+    company: "Nifty Coders",
+    url: "https://www.niftycoders.com",
+    location: "Dhaka",
+    start: "Mar 2024",
+    end: "Sep 2026",
+    client: "IQVIA",
+    summary: "Agentic AI, LLM fine-tuning and MLOps, including work for IQVIA, a global healthcare data company.",
+    highlights: [
+      "Built a **multi-agent commercial planner on LangGraph**: an orchestrator agent routes each request to specialized planning sub-agents.",
+      "Built a multi-agent system with a **reflection pattern** to enrich metadata.",
+      "Built a **multi-agent pipeline** that generates synthetic data to **fine-tune an LLM**, improving accuracy and robustness.",
+      "Migrated ML algorithms from Kubeflow to **SageMaker Pipelines** with **MLflow** for model management.",
+      "Set up **GitLab CI/CD** and unit tests to tighten code quality and deployments.",
+    ],
+    stack: ["LangGraph", "Multi-agent", "LLM fine-tuning", "SageMaker", "MLflow", "Kubeflow", "GitLab CI"],
+  },
+  {
+    title: "Lead Data Scientist",
+    company: "SELISE Digital Platforms",
+    url: "https://selisegroup.com",
+    location: "Dhaka",
+    start: "Apr 2022",
+    end: "Mar 2024",
+    summary: "Led video understanding work for FIFAe esports streams.",
+    highlights: [
+      "Deep learning models that **detect in-game events** in FIFAe streams.",
+      "Led **16:9 to 9:16 reframing** with motion tracking and signal processing for smooth mobile clips.",
+      "Extracted **CLIP and ViT embeddings** from streams and clustered similar scenes across chunks.",
+      "Brought **MLflow and Airflow** into training and production pipelines.",
+    ],
+    stack: ["PyTorch", "CLIP", "ViT", "Video", "MLflow", "Airflow"],
+  },
+  {
+    title: "Executive Machine Learning Engineer",
+    company: "BYSL Global Technologies",
+    url: "https://byslglobal.com",
+    location: "Dhaka",
+    start: "Aug 2021",
+    end: "Mar 2022",
+    summary: "Speech recognition and computer vision products.",
+    highlights: [
+      "**Bangla speech recognition** with a Transformer model, reaching **20% WER**, plus a testing pipeline across diverse audio.",
+      "Built a **virtual trial room** with computer vision and deep learning.",
+    ],
+    stack: ["ASR", "Transformers", "Computer vision"],
+  },
+  {
+    title: "Machine Learning Engineer",
+    company: "Smart Retina",
+    location: "Dhaka",
+    start: "Nov 2020",
+    end: "Aug 2021",
+    summary: "Diabetic retinopathy screening from fundus images.",
+    highlights: [
+      "**92% sensitivity** in diabetic retinopathy classification.",
+      "**Grad-CAM** maps that show ophthalmologists which regions drove each prediction.",
+      "Ensembles added **3.2% accuracy**; left/right eye classification reached **98%**.",
+      "Clustered images using learned model features.",
+    ],
+    stack: ["Computer vision", "Grad-CAM", "Ensembles", "Clustering"],
+  },
+  {
+    title: "Machine Learning Engineer",
+    company: "Daffodil Software",
+    url: "https://daffodil.group",
+    location: "Dhaka",
+    start: "Oct 2019",
+    end: "Oct 2020",
+    summary: "Applied ML for public health and education.",
+    highlights: [
+      "Led an **ICT Ministry pilot** detecting Covid-19 and pneumonia from chest X-rays and CT scans at **96% sensitivity**.",
+      "Predicted student dropouts at **98% accuracy**, cutting dropout by 2% over two semesters.",
+      "Sentiment model (**90% accuracy**) for mentor feedback to students.",
+    ],
+    stack: ["Medical imaging", "NLP", "Classification"],
+  },
+];
+
+export const stats = [
+  { value: "7+", label: "years shipping ML to production" },
+  { value: "6", label: "teams across healthcare, esports, speech, HR tech and enterprise data" },
+  { value: "96%", label: "sensitivity on a national Covid-19 screening pilot" },
+  { value: "AWS", label: "Certified AI Practitioner" },
+];
+
+export const strengths = [
+  {
+    title: "Agentic AI and LLMs",
+    body: "Multi-agent systems on LangGraph, RAG with vector databases, and LLM fine-tuning on synthetic data.",
+  },
+  {
+    title: "Voice and speech AI",
+    body: "Real-time voice agents that run structured interviews, and Bangla speech recognition with Transformers.",
+  },
+  {
+    title: "Computer vision",
+    body: "Medical imaging and video understanding, with explainability like Grad-CAM built in.",
+  },
+  {
+    title: "MLOps on AWS",
+    body: "SageMaker Pipelines, MLflow, Airflow and CI/CD so models ship and stay reproducible.",
+  },
+];
+
+export type Tool = { name: string; icon?: string };
+export const stack: { group: string; tools: Tool[] }[] = [
+  {
+    group: "Agentic AI and LLMs",
+    tools: [
+      { name: "LangGraph" },
+      { name: "LangChain" },
+      { name: "RAG" },
+      { name: "Vector databases" },
+      { name: "LLM fine-tuning" },
+      { name: "Multi-agent systems" },
+      { name: "Voice agents" },
+      { name: "Embeddings" },
+    ],
+  },
+  {
+    group: "ML and computer vision",
+    tools: [
+      { name: "PyTorch", icon: devicon("pytorch") },
+      { name: "TensorFlow", icon: devicon("tensorflow") },
+      { name: "Lightning", icon: asset("lightning.png") },
+      { name: "scikit-learn", icon: devicon("scikitlearn") },
+      { name: "OpenCV", icon: devicon("opencv") },
+      { name: "ViT / CLIP" },
+      { name: "Pandas", icon: devicon("pandas") },
+      { name: "NumPy", icon: devicon("numpy") },
+      { name: "Polars", icon: asset("polars.png") },
+      { name: "Matplotlib", icon: devicon("matplotlib") },
+      { name: "Plotly", icon: devicon("plotly") },
+      { name: "NLTK" },
+    ],
+  },
+  {
+    group: "MLOps and cloud",
+    tools: [
+      { name: "AWS", icon: devicon("amazonwebservices", "original-wordmark") },
+      { name: "SageMaker" },
+      { name: "MLflow" },
+      { name: "Airflow", icon: devicon("apacheairflow") },
+      { name: "Kubeflow" },
+      { name: "DVC" },
+      { name: "Docker", icon: devicon("docker") },
+      { name: "GitHub Actions", icon: devicon("githubactions") },
+      { name: "Linux", icon: devicon("linux") },
+    ],
+  },
+  {
+    group: "Backend, data and languages",
+    tools: [
+      { name: "Python", icon: devicon("python") },
+      { name: "FastAPI", icon: devicon("fastapi") },
+      { name: "Flask", icon: devicon("flask") },
+      { name: "Redis", icon: devicon("redis") },
+      { name: "Postgres", icon: devicon("postgresql") },
+      { name: "MongoDB", icon: devicon("mongodb") },
+      { name: "Go", icon: devicon("go", "original-wordmark") },
+      { name: "Rust", icon: devicon("rust") },
+      { name: "TypeScript", icon: devicon("typescript") },
+      { name: "React", icon: devicon("react") },
+      { name: "Next.js", icon: devicon("nextjs") },
+    ],
+  },
+];
+
+export type Project = {
+  title: string;
+  context: string;
+  metric?: string;
+  points: string[];
+  tags: string[];
+  links?: { label: string; url: string }[];
+};
+
+const gh = (repo: string) => `https://github.com/skfaysal/${repo}`;
+
+export const projects: Project[] = [
+  {
+    title: "Voice screening agent",
+    context: "Techjays",
+    points: ["Runs the first-round screening call and adapts follow-ups to each answer.", "Hands recruiters a structured summary of every call."],
+    tags: ["Voice AI", "LLMs"],
+  },
+  {
+    title: "Multi-agent commercial planner",
+    context: "Nifty Coders",
+    points: ["Orchestrator agent on LangGraph routes requests to specialized planning sub-agents.", "Reflection-pattern agents enrich metadata."],
+    tags: ["LangGraph", "Agentic AI"],
+  },
+  {
+    title: "IQVIA ML platform",
+    context: "Nifty Coders",
+    points: ["Kubeflow to SageMaker Pipelines migration with MLflow.", "Multi-agent synthetic data generation for LLM fine-tuning."],
+    tags: ["MLOps", "LLMs"],
+  },
+  {
+    title: "Diabetic retinopathy screening",
+    context: "Smart Retina",
+    metric: "92% sensitivity",
+    points: ["Fundus image classifier with Grad-CAM explanations for ophthalmologists.", "Ensembles for a 3.2% accuracy lift; 98% left/right eye classification."],
+    tags: ["Computer vision", "Healthcare"],
+    links: [
+      { label: "Classifier", url: gh("Diabetic-Retinopathy-Classification") },
+      { label: "Grad-CAM", url: gh("Visualize-inner-conv-layer-GradCAM") },
+      { label: "Ensemble notebook", url: "https://colab.research.google.com/drive/1zQvLkBqQ9xsXbkbSRqXESCYziXGo3vKX" },
+      { label: "Left/right eye", url: gh("Left-Right-fundus-classification-from-retinal-image") },
+      { label: "Clustering", url: gh("Data-clustering-and-labelling-from-learned-features") },
+    ],
+  },
+  {
+    title: "Covid-19 and pneumonia detection",
+    context: "Daffodil Software, ICT Ministry pilot",
+    metric: "96% sensitivity",
+    points: ["Chest X-ray and CT scan models, led end to end.", "Published in the International Journal of Biomedicine."],
+    tags: ["Medical imaging", "Research"],
+    links: [
+      { label: "Demo", url: "https://drive.google.com/file/d/1j0bjHaicidzI5IYvoG49CXMS1PwaJXli/view" },
+      { label: "Paper", url: "http://www.ijbm.org/v12i3_25.htm" },
+    ],
+  },
+  {
+    title: "Bangla speech recognition",
+    context: "BYSL Global Technologies",
+    metric: "20% WER",
+    points: ["Transformer-based ASR for Bangla.", "Testing pipeline and performance metrics across diverse audio."],
+    tags: ["Speech", "Transformers"],
+    links: [{ label: "Testing pipeline", url: gh("ASR-Testing-Pipeline-and-performence-matrix") }],
+  },
+  {
+    title: "FIFAe stream intelligence",
+    context: "SELISE",
+    points: ["In-game event detection across live esports streams.", "Automatic 9:16 reframing and CLIP-based scene clustering."],
+    tags: ["Video", "CLIP"],
+  },
+  {
+    title: "Student dropout prediction",
+    context: "Daffodil Software",
+    metric: "98% accuracy",
+    points: ["Flagged at-risk students early, cutting dropout by 2% over two semesters.", "Companion sentiment model (90%) for mentor feedback."],
+    tags: ["Education", "NLP"],
+    links: [
+      { label: "Dropout model", url: gh("Student-Dropout-Prediction") },
+      { label: "Sentiment model", url: gh("Sentiment-analysis-from-teachers-comment") },
+    ],
+  },
+  {
+    title: "Serving ML models with Django",
+    context: "Article on LinkedIn",
+    points: ["Train a model, wrap it in a Django REST API, then Dockerize and deploy it."],
+    tags: ["Writing", "Deployment"],
+    links: [{ label: "Read the article", url: "https://www.linkedin.com/pulse/serve-machine-learning-models-using-django-rest-api-part-md-faysal/" }],
+  },
+];
+
+export const education = {
+  degree: "BSc in Computer Science and Engineering",
+  school: "National University of Bangladesh",
+  years: "2016 – 2019",
+  thesis: "An intelligent surveillance system for crime detection",
+};
+
+export const certifications: { name: string; issuer: string; url?: string; icon: string }[] = [
+  { name: "AWS Certified AI Practitioner", issuer: "AWS", url: "https://www.credly.com/badges/b0923177-7e0d-4d14-be6c-513831224178/linked_in?t=so52rt", icon: asset("aws-icon.png") },
+  { name: "Opensource LLMOps Solutions", issuer: "Coursera", url: "https://www.coursera.org/account/accomplishments/verify/933QEYIHR1YJ", icon: asset("coursera-icon.png") },
+  { name: "Introduction to Machine Learning in Production", issuer: "Coursera", url: "https://www.coursera.org/account/accomplishments/verify/XLAYXDPDN9TQ", icon: asset("coursera-icon.png") },
+  { name: "Mathematics for Machine Learning: Linear Algebra", issuer: "Coursera", url: "https://www.coursera.org/account/accomplishments/verify/ZTR6LQSXLWTR", icon: asset("coursera-icon.png") },
+  { name: "NLP with Classification and Vector Spaces", issuer: "Coursera", url: "https://www.coursera.org/account/accomplishments/verify/E6CHPMWUUJDB", icon: asset("coursera-icon.png") },
+  { name: "Introduction to Data Science with Python", issuer: "BUET", icon: asset("buet-icon.png") },
+];
+
+export const writing = [
+  {
+    title: "Serve machine learning models using Django REST API, part 1",
+    url: "https://www.linkedin.com/pulse/serve-machine-learning-models-using-django-rest-api-part-md-faysal/",
+  },
+];
+
+export const publications = [
+  {
+    title:
+      "Helping Healthcare Providers to Differentiate COVID-19 Pneumonia by Analyzing Digital Chest X-Rays: Role of Artificial Intelligence in Healthcare Practice",
+    venue: "International Journal of Biomedicine",
+    url: "http://www.ijbm.org/v12i3_25.htm",
+  },
+];
